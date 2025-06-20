@@ -16,6 +16,9 @@
 
 
     <dependencies>
+
+
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -25,16 +28,14 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.28.1</version>
+            <version>4.33.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.9.2</version>
+            <version>6.1.0</version>
+            <scope>test</scope>
         </dependency>
-
-
-
 
 
 

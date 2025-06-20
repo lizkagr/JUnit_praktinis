@@ -4,37 +4,33 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-    private WebDriver driver;
+    // Веб-драйвер, управляющий браузером
+    private final WebDriver driver;
 
-    @FindBy(id = "user-name")
+    // Находит поле ввода для имени пользователя по атрибуту name="username"
+    @FindBy(name = "username")
     private WebElement username;
 
-    @FindBy(id = "password")
+    // Находит поле ввода для пароля по атрибуту name="password"
+    @FindBy(name = "password")
     private WebElement password;
 
-    @FindBy(id = "login-button")
+    // Находит кнопку логина по указанному XPath
+    @FindBy(xpath = "/html/body/div/form/div/button")
     private WebElement loginButton;
 
-    @FindBy(css = "h3[data-test='error']")
-    private WebElement errorMessage;
-
+    // Конструктор класса, инициализирует веб-элементы через PageFactory
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        // Инициализирует аннотированные элементы на странице (FindBy)
         PageFactory.initElements(driver, this);
     }
 
-    public com.saucedemo.pages.InventoryPage login(String username, String password) {
-        this.username.sendKeys(username);
-        this.password.sendKeys(password);
-        loginButton.click();
-        return new com.saucedemo.pages.InventoryPage(driver);
-    }
-
-    public String getErrorMessage() {
-        return errorMessage.getText();
-    }
-
-    public boolean isLoginButtonEbabled() {
-        return loginButton.isDisplayed();
+    // Метод для выполнения входа — вводит имя пользователя и пароль, затем нажимает кнопку
+    public void login(String username, String password) {
+        this.username.sendKeys(username); // Ввод имени пользователя
+        this.password.sendKeys(password); // Ввод пароля
+        loginButton.click();               // Клик по кнопке "Войти"
     }
 }
+
