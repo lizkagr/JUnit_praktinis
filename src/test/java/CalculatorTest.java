@@ -32,7 +32,7 @@ public class CalculatorTest {
             // Можно добавить проверку результата здесь
 
         } finally {
-//            driver.quit();
+            driver.quit();
         }
     }
 }

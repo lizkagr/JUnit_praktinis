@@ -21,7 +21,9 @@ public class RegistrationTests {
 
     @Test
     public void testSuccessfulRegistration() {
-        registrationPage.register("newUser1234", "pass123", "pass123");
+        // Генерируем уникальное имя пользователя на основе текущего времени
+        String uniqueUsername = "newUser" + System.currentTimeMillis();
+        registrationPage.register(uniqueUsername, "pass123", "pass123");
 
     }
 
